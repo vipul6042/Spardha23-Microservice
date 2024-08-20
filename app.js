@@ -7,11 +7,7 @@ import YAML from 'yamljs';
 
 const swaggerDocument = YAML.load('./config/gameRoutes.yaml');
 export const app = express();
-app.use(cors({
-    origin: 'http://localhost:3000',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(express.json());
 
