@@ -11,9 +11,9 @@ const server=app.listen(process.env.PORT, () => {
 	console.log("listening on port " + process.env.PORT);
 });
 
-server.on("error",logDiscord)
+// server.on("error",logDiscord)
 
 
-process.on("uncaughtException", logDiscord);
+// process.on("uncaughtException", logDiscord);
 
-process.on("unhandledRejection", logDiscord);
+// process.on("unhandledRejection", logDiscord);

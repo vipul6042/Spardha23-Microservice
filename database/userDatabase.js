@@ -15,9 +15,9 @@ export const pool = new Pool({
 
 export const connectPgDB = () => {
     try {
-        pool.connect(err => {
-            if (err) return console.error(err);
-            console.log("Connected!");
+        pool.on('error', (err) => {
+            console.error('Unexpected error on idle client', err);
+            process.exit(-1); // Force exit the process in case of unexpected pool error
         });
     } catch (error) {
         console.log(error);
